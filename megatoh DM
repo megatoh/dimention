@@ -1,0 +1,29 @@
+// Create a new Illustrator document
+var doc = app.documents.add();
+
+// Set the width and height of the rectangle
+var rectWidth = 100; // Change this to your desired width
+var rectHeight = 50; // Change this to your desired height
+
+// Calculate the position for the rectangle to be centered on the artboard
+var artboard = doc.artboards[0]; // Get the first artboard (assuming only one)
+var centerX = artboard.artboardRect[2] / 2;
+var centerY = artboard.artboardRect[3] / 2;
+
+// Create a new rectangle
+var rect = doc.pathItems.rectangle(centerY - rectHeight / 2, centerX - rectWidth / 2, rectWidth, rectHeight);
+
+// Set the fill color to red
+rect.fillColor = new RGBColor();
+rect.fillColor.red = 255;
+rect.fillColor.green = 0;
+rect.fillColor.blue = 0;
+
+// Add the rectangle to the active layer
+doc.layers[0].pathItems.add(rect);
+
+// Save the document (optional)
+// doc.saveAs(File('path/to/save/your/document.ai'));
+
+// Close the document (optional)
+// doc.close(SaveOptions.SAVECHANGES);
